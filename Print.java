@@ -1,6 +1,4 @@
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
 
 public class Print {
@@ -52,6 +50,54 @@ public class Print {
             }
         }
         b.append("}");
+        System.out.println(b.toString());
+    }
+    public static <T>void printStack(Stack<T> stack){
+        StringBuilder b = new StringBuilder();
+        b.append("BOTTOM [");
+        for(int i = 0; i < stack.size(); i++){
+            b.append(stack.get(i));
+            if(i != stack.size() - 1){
+                b.append(", ");
+            }
+        }
+        b.append("] TOP");
+        System.out.println(b.toString());
+    }
+    public static <T>void printStack(Stack<T> stack, Function<T, String> fun){
+        StringBuilder b = new StringBuilder();
+        b.append("BOTTOM [");
+        for(int i = 0; i < stack.size(); i++){
+            b.append(fun.apply(stack.get(i)));
+            if(i != stack.size() - 1){
+                b.append(", ");
+            }
+        }
+        b.append("] TOP");
+        System.out.println(b.toString());
+    }
+    public static <S, T>void printMap(Map<S, T> map){
+        StringBuilder b = new StringBuilder();
+        b.append("[");
+        for(Map.Entry<S, T> entry : map.entrySet()){
+            b.append("{"+entry.getKey().toString()+" : "+entry.getValue().toString()+"}");
+            b.append(", ");
+        }
+        b.deleteCharAt(b.length()-1);
+        b.deleteCharAt(b.length()-1);
+        b.append("]");
+        System.out.println(b.toString());
+    }
+    public static <S, T>void printMap(Map<S, T> map, Function<S, String> fun1, Function<T, String> fun2){
+        StringBuilder b = new StringBuilder();
+        b.append("[");
+        for(Map.Entry<S, T> entry : map.entrySet()){
+            b.append("{"+fun1.apply(entry.getKey())+" : "+fun2.apply(entry.getValue())+"}");
+            b.append(", ");
+        }
+        b.deleteCharAt(b.length()-1);
+        b.deleteCharAt(b.length()-1);
+        b.append("]");
         System.out.println(b.toString());
     }
 }

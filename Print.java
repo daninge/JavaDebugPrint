@@ -9,7 +9,8 @@ public class Print {
     public static <T>void printn(T t){
         System.out.println(t.toString());
     }
-    public static void printList(List<?> list){
+
+    public static String printList(List<?> list){
         StringBuilder b = new StringBuilder();
         b.append("[");
         for(int i  = 0; i < list.size(); i++){
@@ -19,9 +20,9 @@ public class Print {
             }
         }
         b.append("]");
-        System.out.println(b.toString());
+        return b.toString();
     }
-    public static void printList(List<?> list, Function<Object, String> fun){
+    public static String printList(List<?> list, Function<Object, String> fun){
         StringBuilder b = new StringBuilder();
         b.append("[");
         for(int i  = 0; i < list.size(); i++){
@@ -31,9 +32,9 @@ public class Print {
             }
         }
         b.append("]");
-        System.out.println(b.toString());
+        return b.toString();
     }
-    public static void printSet(Set<?> set){
+    public static String printSet(Set<?> set){
         StringBuilder b = new StringBuilder();
         b.append("{");
         Iterator<?> i = set.iterator();
@@ -44,9 +45,9 @@ public class Print {
             }
         }
         b.append("}");
-        System.out.println(b.toString());
+        return b.toString();
     }
-    public static <T>void printSet(Set<T> set, Function<T, String> fun){
+    public static <T>String printSet(Set<T> set, Function<T, String> fun){
         StringBuilder b = new StringBuilder();
         b.append("{");
         Iterator<?> i = set.iterator();
@@ -57,9 +58,9 @@ public class Print {
             }
         }
         b.append("}");
-        System.out.println(b.toString());
+        return b.toString();
     }
-    public static <T>void printStack(Stack<T> stack){
+    public static <T>String printStack(Stack<T> stack){
         StringBuilder b = new StringBuilder();
         b.append("BOTTOM [");
         for(int i = 0; i < stack.size(); i++){
@@ -69,9 +70,9 @@ public class Print {
             }
         }
         b.append("] TOP");
-        System.out.println(b.toString());
+        return b.toString();
     }
-    public static <T>void printStack(Stack<T> stack, Function<T, String> fun){
+    public static <T>String printStack(Stack<T> stack, Function<T, String> fun){
         StringBuilder b = new StringBuilder();
         b.append("BOTTOM [");
         for(int i = 0; i < stack.size(); i++){
@@ -81,9 +82,9 @@ public class Print {
             }
         }
         b.append("] TOP");
-        System.out.println(b.toString());
+        return b.toString();
     }
-    public static <S, T>void printMap(Map<S, T> map){
+    public static <S, T>String printMap(Map<S, T> map){
         StringBuilder b = new StringBuilder();
         b.append("[");
         for(Map.Entry<S, T> entry : map.entrySet()){
@@ -93,9 +94,9 @@ public class Print {
         b.deleteCharAt(b.length()-1);
         b.deleteCharAt(b.length()-1);
         b.append("]");
-        System.out.println(b.toString());
+        return b.toString();
     }
-    public static <S, T>void printMap(Map<S, T> map, Function<S, String> fun1, Function<T, String> fun2){
+    public static <S, T>String printMap(Map<S, T> map, Function<S, String> fun1, Function<T, String> fun2){
         StringBuilder b = new StringBuilder();
         b.append("[");
         for(Map.Entry<S, T> entry : map.entrySet()){
@@ -105,6 +106,6 @@ public class Print {
         b.deleteCharAt(b.length()-1);
         b.deleteCharAt(b.length()-1);
         b.append("]");
-        System.out.println(b.toString());
+        return b.toString();
     }
 }

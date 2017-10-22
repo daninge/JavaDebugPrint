@@ -2,6 +2,13 @@ import java.util.*;
 import java.util.function.Function;
 
 public class Print {
+
+    public static <T>void print(T t){
+        System.out.print(t.toString());
+    }
+    public static <T>void printn(T t){
+        System.out.println(t.toString());
+    }
     public static void printList(List<?> list){
         StringBuilder b = new StringBuilder();
         b.append("[");
